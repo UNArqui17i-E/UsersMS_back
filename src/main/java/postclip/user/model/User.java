@@ -6,9 +6,12 @@ import javax.persistence.*;
 @Entity
 @Table( name = "users" )
 @NamedQueries( { @NamedQuery( name = User.FIND_ALL, query = "SELECT u FROM User u" ) } )
+@NamedQueries( { @NamedQuery( name = User.FIND_BY_EMAIL,
+                 query = "SELECT u FROM User u WHERE u.name = :name" ) } )
 public class User{
 
     public static final String FIND_ALL = "User.findAll";
+    public static final String FIND_BY_EMAIL = "User.findByEmail";
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )

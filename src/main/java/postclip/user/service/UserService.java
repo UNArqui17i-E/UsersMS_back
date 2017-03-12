@@ -16,7 +16,7 @@ public class UserService{
 
     public List<User> getAllUsers( int first, int maxResult ){
         return entityManager.createNamedQuery( User.FIND_ALL )
-                .setFirstResult( first ).setMaxResults( maxResult ).getResultList( );
+         .setFirstResult( first ).setMaxResults( maxResult ).getResultList( );
     }
 
     public User getUserById( long id ){
@@ -31,6 +31,7 @@ public class UserService{
         User userToUpdate = entityManager.find( User.class, id );
         userToUpdate.setName( user.getName( ) );
         userToUpdate.setEmail( user.getEmail( ) );
+        userToUpdate.setPassword( user.getPassword( ) );
         return entityManager.merge( userToUpdate );
     }
 

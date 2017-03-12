@@ -1,0 +1,4 @@
+postclip\user\service\UserService.class
+postclip\user\model\User.class
+postclip\user\JAXRSConfiguration.class
+postclip\user\resource\UserResource.class

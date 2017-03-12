@@ -51,7 +51,7 @@
         <managed-scheduled-executor-service object-type="system-all" jndi-name="concurrent/__defaultManagedScheduledExecutorService"></managed-scheduled-executor-service>
         <managed-thread-factory object-type="system-all" jndi-name="concurrent/__defaultManagedThreadFactory"></managed-thread-factory>
         <jdbc-connection-pool driver-classname="com.mysql.jdbc.Driver" name="AppPool" res-type="java.sql.Driver">
-            <property name="password" value="$arquisoft2017/1*"></property>
+            <property name="password" value="arquisoft2017I"></property>
             <property name="user" value="postclip"></property>
             <property name="URL" value="jdbc:mysql://user-db:3306/user"></property>
         </jdbc-connection-pool>

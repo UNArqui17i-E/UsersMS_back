@@ -47,7 +47,8 @@ public class UserResource{
     }
 
     @PUT
-    public Response updatePassword( long id, String password ){
+    @Path( "{id}" )
+    public Response updatePassword( @PathParam( "id" ) long id, String password ){
         userService.updatePassword( id, password );
         return Response.status( Response.Status.NO_CONTENT ).build( );
     }

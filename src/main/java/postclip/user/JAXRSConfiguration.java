@@ -1,4 +1,4 @@
-package arqsoft.authentication;
+package postclip.user;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

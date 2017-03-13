@@ -4,10 +4,10 @@ import javax.persistence.*;
 
 
 @Entity
-@Table( name = "users" )
-@NamedQueries( { @NamedQuery( name = User.FIND_ALL, query = "SELECT u FROM User u" ) } )
-@NamedQueries( { @NamedQuery( name = User.FIND_BY_EMAIL,
-                 query = "SELECT u FROM User u WHERE u.name = :name" ) } )
+@Table( name = "user" )
+@NamedQueries( { @NamedQuery( name = User.FIND_ALL, query = "SELECT u FROM User u" ),
+                 @NamedQuery( name = User.FIND_BY_EMAIL,
+                 query = "SELECT u FROM User u WHERE u.email = :email" ) } )
 public class User{
 
     public static final String FIND_ALL = "User.findAll";

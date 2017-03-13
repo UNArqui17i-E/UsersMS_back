@@ -14,9 +14,11 @@ public class AuthenticationService{
     @PersistenceContext
     EntityManager entityManager;
 
-    public List<User> getUserByEmail( String email ){
-        return entityManager.createNamedQuery( User.FIND_BY_EMAIL, email )
-                            .setParameter("email", email ).getResultList( );
+    public User getUserByEmail( String email ){
+        List<User> user = entityManager.createNamedQuery( User.FIND_BY_EMAIL, User.class )
+                      .setParameter( "email", email ).getResultList( );
+        if( user.size( ) == 0 || user.size( ) > 1 ) return null;
+        else return user.get( 0 );
     }
 
 }

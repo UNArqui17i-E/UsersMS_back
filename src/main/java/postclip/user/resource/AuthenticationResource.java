@@ -1,7 +1,8 @@
 package postclip.user.resource;
 
 import postclip.user.model.User;
-import postclip.user.service.UserService;
+import postclip.user.model.Authentication;
+import postclip.user.service.AuthenticationService;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;
@@ -19,12 +20,17 @@ public class AuthenticationResource{
     UriInfo uriInfo;
 
     @EJB
-    UserService userService;
+    AuthenticationService authenticationService;
 
     @POST
-    public String loginUser( String email, String password ){
-        List<User> user = AuthenticationService.getUserByEmail( email );
-        return Response.status( Response.Status.CREATED ).build( );
+    public String loginUser( User user ){
+        User foundUser = authenticationService.getUserByEmail( user.getEmail( ) );
+        if( foundUser == null) return null;
+        if( user.getPassword( ).equals( foundUser.getPassword( ) ) ){
+            return "jasghadf.ajsdhhbadf.akdjfasbdfjasdf";
+        }else{
+            return null;
+        }
     }
 
 }

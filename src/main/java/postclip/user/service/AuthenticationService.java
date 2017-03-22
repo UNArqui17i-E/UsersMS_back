@@ -20,5 +20,4 @@ public class AuthenticationService{
         if( user.size( ) == 0 || user.size( ) > 1 ) return null;
         else return user.get( 0 );
     }
-
 }

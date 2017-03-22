@@ -1,4 +1,5 @@
 postclip\user\resource\AuthenticationResource.class
+postclip\user\service\TokenService.class
 postclip\user\model\Authentication.class
 postclip\user\model\User.class
 postclip\user\JAXRSConfiguration.class

@@ -7,14 +7,14 @@ import io.jsonwebtoken.*;
 import java.util.Date;
 
 
-public class TokenService{
+public final class TokenService{
 
-    private static String apiKey = "74207281";
+    private static final String apiKey = "74207281";
     //Sample method to construct a JWT
-    public String createJWT( String id, String subject, long ttlMillis ){
+    public static String createJWT( String id, String subject, long ttlMillis ){
 
         //The JWT signature algorithm we will be using to sign the token
-        /*SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
+        SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 
         long nowMillis = System.currentTimeMillis( );
         Date now = new Date( nowMillis );
@@ -37,8 +37,7 @@ public class TokenService{
         }
 
         //Builds the JWT and serializes it to a compact, URL-safe string
-        return builder.compact( );*/
-        return "s.d.m.b.";
+        return builder.compact( );
     }
 
     //Sample method to validate and read the JWT

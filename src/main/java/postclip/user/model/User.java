@@ -4,16 +4,20 @@ import javax.persistence.*;
 
 
 @Entity
-@Table( name = "users" )
-@NamedQueries( { @NamedQuery( name = User.FIND_ALL, query = "SELECT u FROM User u" ) } )
+@Table( name = "user" )
+@NamedQueries( { @NamedQuery( name = User.FIND_ALL, query = "SELECT u FROM User u" ),
+                 @NamedQuery( name = User.FIND_BY_EMAIL,
+                 query = "SELECT u FROM User u WHERE u.email = :email" ) } )
 public class User{
 
     public static final String FIND_ALL = "User.findAll";
+    public static final String FIND_BY_EMAIL = "User.findByEmail";
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private long id;
     private String name;
+    private String nick;
     private String email;
     private String password;
 
@@ -31,6 +35,14 @@ public class User{
 
     public void setName( String name ){
         this.name = name;
+    }
+
+    public String getNick( ){
+        return nick;
+    }
+
+    public void setNick( String nick ){
+        this.nick = nick;
     }
 
     public String getEmail( ){

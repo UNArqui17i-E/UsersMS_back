@@ -1,7 +1,6 @@
 package postclip.user.resource;
 
 import postclip.user.model.User;
-import postclip.user.model.Authentication;
 import postclip.user.service.AuthenticationService;
 import postclip.user.service.TokenService;
 

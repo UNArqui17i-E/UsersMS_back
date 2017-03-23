@@ -17,6 +17,7 @@ public class User{
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private long id;
     private String name;
+    private String nick;
     private String email;
     private String password;
 
@@ -34,6 +35,14 @@ public class User{
 
     public void setName( String name ){
         this.name = name;
+    }
+
+    public String getNick( ){
+        return nick;
+    }
+
+    public void setNick( String nick ){
+        this.nick = nick;
     }
 
     public String getEmail( ){

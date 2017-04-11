@@ -24,10 +24,9 @@ public class AuthenticationResource{
 
     @POST
     public String loginUser( User user ){
-        System.out.println( user );
         User foundUser = authenticationService.getUserByEmail( user.getEmail( ) );
-        if( foundUser == null) return null;
-        if( user.getPassword( ).equals( foundUser.getPassword( ) ) ){
+        if( foundUser == null) return "Usuario invalido";
+        if( HashService.hash( user.getPassword( ) ).equals( foundUser.getPassword( ) ) ){
             try{
                 return TokenService.createJWT( Long.toString( foundUser.getId( ) ),
                    foundUser.getName( ), 1200000L );

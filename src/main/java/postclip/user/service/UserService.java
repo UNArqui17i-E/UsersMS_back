@@ -1,6 +1,7 @@
 package postclip.user.service;
 
 import postclip.user.model.User;
+import postclip.user.service.HashService;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -24,6 +25,7 @@ public class UserService{
     }
 
     public void createUser( User user ){
+        user.setPassword( HashService.hash( user.getPassword( ) ) );
         entityManager.persist( user );
     }
 
@@ -31,13 +33,13 @@ public class UserService{
         User userToUpdate = entityManager.find( User.class, id );
         userToUpdate.setName( user.getName( ) );
         userToUpdate.setEmail( user.getEmail( ) );
-        userToUpdate.setPassword( user.getPassword( ) );
+        userToUpdate.setPassword( HashService.hash( user.getPassword( ) ) );
         return entityManager.merge( userToUpdate );
     }
 
     public User updatePassword( long id, String password ){
         User userToUpdate = entityManager.find( User.class, id );
-        userToUpdate.setPassword( password );
+        userToUpdate.setPassword( HashService.hash( password ) );
         return entityManager.merge( userToUpdate );
     }
 

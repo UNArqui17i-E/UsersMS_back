@@ -34,6 +34,17 @@ public class AuthenticationService{
 
     }
 
+    public Authentication getAuthentication( String token ){
+        try{
+            // System.out.println( "$$$" + token + "$$$" );
+            return entityManager.find( Authentication.class, token );
+        }catch( Exception e ){
+            // System.out.println( e.toString( ) );
+            return null;
+        }
+
+    }
+
     public String login( User user ){
         User foundUser = userService.getUserByEmail( user.getEmail( ) );
         if( foundUser == null) return "Usuario invalido";
@@ -45,7 +56,11 @@ public class AuthenticationService{
     }
 
     public void logoutUser( String token ){
-        Authentication au = entityManager.find( Authentication.class, token );
-        entityManager.remove( au );
+        try{
+            Authentication au = entityManager.find( Authentication.class, token );
+            entityManager.remove( au );
+        }catch( Exception e ){
+            System.out.println( e.toString( ) );
+        }
     }
 }

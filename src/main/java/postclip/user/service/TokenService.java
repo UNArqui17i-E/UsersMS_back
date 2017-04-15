@@ -39,16 +39,4 @@ public final class TokenService{
         //Builds the JWT and serializes it to a compact, URL-safe string
         return builder.compact( );
     }
-
-    //Sample method to validate and read the JWT
-    public void parseJWT( String jwt ){
-
-        //This line will throw an exception if it is not a signed JWS (as expected)
-        Claims claims = Jwts.parser( )
-           .setSigningKey( DatatypeConverter.parseBase64Binary( apiKey ) )
-           .parseClaimsJws( jwt ).getBody( );
-        System.out.println( "ID: " + claims.getId( ) );
-        System.out.println( "Subject: " + claims.getSubject( ) );
-        System.out.println( "Expiration: " + claims.getExpiration( ) );
-    }
 }

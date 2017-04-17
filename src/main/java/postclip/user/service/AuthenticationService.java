@@ -20,16 +20,16 @@ public class AuthenticationService{
     @EJB
     UserService userService;
 
-    private String createToken( User user ){
+    private Authentication createToken( User user ){
         Authentication authentication = new Authentication( );
         try{
             authentication.setToken( TokenService.createJWT( Long.toString( user.getId( ) ),
                user.getEmail( ), 1200000L ) );
             authentication.setId( user.getId( ) );
             entityManager.persist( authentication );
-            return authentication.getToken( );
+            return authentication;
         }catch( Exception e ){
-            return e.toString( );
+            return null;
         }
 
     }
@@ -45,14 +45,12 @@ public class AuthenticationService{
 
     }
 
-    public String login( User user ){
+    public Authentication login( User user ){
         User foundUser = userService.getUserByEmail( user.getEmail( ) );
-        if( foundUser == null) return "Usuario invalido";
-        else if( HashService.hash( user.getPassword( ) ).equals( foundUser.getPassword( ) ) ){
+        if( foundUser == null) return null;
+        else if( HashService.hash( user.getPassword( ) ).equals( foundUser.getPassword( ) ) )
             return createToken( foundUser );
-        }else{
-            return null;
-        }
+        else return null;
     }
 
     public void logoutUser( String token ){

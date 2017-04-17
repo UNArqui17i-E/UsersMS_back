@@ -1,6 +1,7 @@
 package postclip.user.resource;
 
 import postclip.user.model.User;
+import postclip.user.model.Authentication;
 import postclip.user.service.AuthenticationService;
 
 import javax.ejb.EJB;
@@ -21,7 +22,7 @@ public class AuthenticationResource{
     AuthenticationService authenticationService;
 
     @POST
-    public String loginUser( User user ){
+    public Authentication loginUser( User user ){
         return authenticationService.login( user );
     }
 

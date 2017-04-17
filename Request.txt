@@ -1,0 +1,23 @@
+Create user
+--------------------------------------------------------------
+POST - 192.168.99.102:4000/user/resources/users/
+{"name":"Sebastian Moreno", "nick":"sdmorenob", "email":"sdmorenob@unal.edu.co", "password":"12345"}
+
+
+Login User
+--------------------------------------------------------------
+POST - 192.168.99.102:4000/user/resources/authentication
+{"email":"sdmorenob@unal.edu.co", "password":"12345"}
+
+
+Logout User
+--------------------------------------------------------------
+DELETE - 192.168.99.102:4000/user/resources/authentication/ {TOKEN}
+** Cambiar {TOKEN} por el token generado al momento del Login
+
+
+Validacion
+--------------------------------------------------------------
+POST - 192.168.99.102:4000/user/resources/verification
+{"token": " "}
+** Completar el valor del token con el token generado en el momento del Login

@@ -19,7 +19,12 @@ public class VerificationResource{
     VerificationService verificationService;
 
     @POST
-    public boolean verify( Authentication authentication ){
-        return verificationService.verify( authentication.getToken( ) );
+    public String verify( Authentication authentication ){
+        String ret = "{\"valido\":\"";
+        if( verificationService.verify( authentication.getToken( ) ) )
+            ret += "true\"}";
+        else
+            ret += "false\"}";
+        return ret;
     }
 }

@@ -1,5 +1,5 @@
 FROM mysql
-
+#fix dockerhub
 ENV MYSQL_ROOT_PASSWORD arquisoft2017I
 ENV MYSQL_DATABASE user
 ENV MYSQL_USER postclip

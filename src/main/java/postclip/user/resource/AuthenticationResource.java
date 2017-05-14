@@ -23,6 +23,7 @@ public class AuthenticationResource{
 
     @POST
     public Authentication loginUser( User user ){
+        //System.out.println("Esta aqui");
         return authenticationService.login( user );
     }
 

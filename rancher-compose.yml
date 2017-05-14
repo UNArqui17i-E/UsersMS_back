@@ -1,0 +1,4 @@
+user-db:
+  scale: 1
+user-ms:
+  scale: 1

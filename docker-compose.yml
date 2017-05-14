@@ -1,9 +1,11 @@
 user-db:
   build: ./db-server
+  #image: trum/usersms_back-db
   ports:
     - "3306:3306"
 user-ms:
   build: .
+  #image: trum/usersms_back1
   ports:
     - "4000:4000"
   links:

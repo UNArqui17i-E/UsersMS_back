@@ -20,6 +20,8 @@ public class VerificationResource{
 
     @POST
     public String verify( Authentication authentication ){
+        System.out.println( "    Verify the token" );
+        System.out.println( "    POST " + authentication.getToken( ) );
         String ret = "{\"valido\":\"";
         if( verificationService.verify( authentication.getToken( ) ) )
             ret += "true\"}";

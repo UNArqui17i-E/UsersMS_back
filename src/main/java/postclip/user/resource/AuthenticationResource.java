@@ -23,13 +23,16 @@ public class AuthenticationResource{
 
     @POST
     public Authentication loginUser( User user ){
-        //System.out.println("Esta aqui");
+        System.out.println( "    Authentication for user" );
+        System.out.println( "    POST " + user.getEmail( ) );
         return authenticationService.login( user );
     }
 
     @DELETE
     @Path("{token}")
     public Response logoutUser( @PathParam( "token" ) String token ){
+        System.out.println( "    Remove Session" );
+        System.out.println( "    DELETE " + token );
         authenticationService.logoutUser( token );
         return Response.status( Response.Status.OK ).build( );
 
